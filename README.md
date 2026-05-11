@@ -92,6 +92,3 @@ Isso ajudou a evitar repetição de código.
 
 ---
 
-# Autor
-
-Projeto desenvolvido por Guilherme Felipe para prática de Python.
