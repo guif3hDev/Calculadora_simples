@@ -85,7 +85,6 @@ Isso ajudou a evitar repetição de código.
 
 # Possíveis melhorias
 
-- Histórico de cálculos
 - Potência e raiz quadrada
 - Interface gráfica
 - Mais operadores
