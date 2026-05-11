@@ -1,11 +1,14 @@
 def somar(a, b):
     return a + b
 
+
 def subtrair(a, b):
     return a - b
 
+
 def dividir(a, b):
     return a / b
+
 
 def multiplicar(a, b):
     return a * b
@@ -17,6 +20,8 @@ operadores = {
     "/": dividir,
     "*": multiplicar
 }
+
+historico = []
 
 
 def pergunta_saida():
@@ -48,6 +53,10 @@ def main():
 
         print(f"{num1:g} {operador} {num2:g} = {resultado:g}")
 
+        historico.append(
+            f"{num1:g} {operador} {num2:g} = {resultado:g}"
+        )
+
     except ValueError:
         print("Digite apenas números!")
         return
@@ -61,18 +70,38 @@ def main():
         if pergunta_saida():
             break
 
-        operador_novo = input("Digite um operador (+, -, *, /): ")
+        operador_novo = input(
+            "Digite um operador (+, -, *, /): "
+        )
 
         if operador_novo not in operadores:
             print("Operador inválido!")
             continue
 
         try:
-            numero_novo = float(input("Digite outro número: "))
+            numero_novo = float(
+                input("Digite outro número: ")
+            )
 
-            resultado = operadores[operador_novo](resultado, numero_novo)
+            resultado_anterior = resultado
+
+            resultado = operadores[operador_novo](
+                resultado,
+                numero_novo
+            )
+
+            historico.append(
+                f"{resultado_anterior:g} "
+                f"{operador_novo} "
+                f"{numero_novo:g} "
+                f"= {resultado:g}"
+            )
 
             print(f"Resultado atual: {resultado:g}")
+
+            print("\nHistórico:")
+            for conta in historico:
+                print(conta)
 
         except ValueError:
             print("Digite apenas números!")
